@@ -40,6 +40,7 @@ def numWays(words: list[str], target: str) -> int:
     # return helper(0, 0)
 
     """Correct solution using dynamic programming"""
+    # still need to understand this code.
     MOD = 10**9 + 7
     lenMax = len(words[0])
     target_len = len(target)
