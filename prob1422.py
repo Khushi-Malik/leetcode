@@ -9,18 +9,52 @@ def maxScore(s: str) -> int:
     >>> maxScore("011101")
     5
     """
-    possible = []
+    # NOT VERY EFFICIENT
+    # possible = []
 
-    for i in range(1, len(s)):
-        left = s[:i]
-        right = s[i:]
+    # for i in range(1, len(s)):
+    #     left = s[:i]
+    #     right = s[i:]
 
-        zeroes = left.count("0")
-        ones = right.count("1")
+    #     zeroes = left.count("0")
+    #     ones = right.count("1")
 
-        possible.append(zeroes+ones)
+    #     possible.append(zeroes+ones)
     
-    return max(possible)
+    # return max(possible)
+
+    #BEST SOLUTION
+    # ones = 0
+    # zeros = 0
+    # best = float('-inf')
+
+    # for i in range(len(s) - 1):
+    #     if s[i] == "1":
+    #         ones += 1
+    #     else:
+    #         zeros += 1
+        
+    #     best = max(best, zeros - ones)
+        
+    # if s[-1] == "1":
+    #     ones += 1
+    
+    # return best + ones
+
+    #ANOTHER SOLUTION
+    ones = s.count("1")
+    zeros = 0
+    ans = 0 
+
+    for i in range(len(s) - 1):
+        if s[i] == "1":
+            ones -= 1
+        else:
+            zeros += 1
+    
+        ans = max(ans, zeros + ones)
+    
+    return ans
 
 
-print(maxScore("011101"))
+print(maxScore("1111"))
